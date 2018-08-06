@@ -29,6 +29,9 @@ class ValidatorsList extends React.PureComponent<Props> {
             style={style}
           >
             {validators.map((account) => {
+              // TODO: filter out
+              // - validators
+              // - 0 balance accounts
               return (
                 <div key={account}>
                    <ValidatorAccount
