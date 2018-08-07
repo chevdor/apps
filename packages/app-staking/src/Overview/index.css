@@ -32,7 +32,17 @@
   text-align: right;
 }
 
-.validator--ValidatorsList{
+.validator--NominatorsFor {
+  padding-left: 3em;
+  padding-bottom: 1em;
+}
+
+.validator--NominatorsFor div {
+  display: inline-block;
+  margin: 0.25rem;
+}
+
+.validator--ValidatorsList {
   border: 1px solid green ;
   border-radius: 10px;
   background-color: #e0f8e0;

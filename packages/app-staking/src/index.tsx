@@ -6,7 +6,6 @@ import { I18nProps } from '@polkadot/ui-app/types';
 
 import React from 'react';
 import storage from '@polkadot/storage';
-import encodeAddress from '@polkadot/util-keyring/address/encode';
 import Button from '@polkadot/ui-app/Button';
 import classes from '@polkadot/ui-app/util/classes';
 import withStorage from '@polkadot/ui-react-rx/with/storage';
@@ -16,6 +15,7 @@ import './index.css';
 
 import StakeList from './StakeList';
 import Overview from './Overview';
+import transformAddresses from './encodeAddresses';
 import translate from './translate';
 
 type Actions = 'actions' | 'overview';
@@ -34,9 +34,6 @@ const Components: { [index: string]: React.ComponentType<any> } = {
   'overview': Overview,
   'actions': StakeList
 };
-
-const transformAddresses = (publicKeys: Array<Uint8Array>) =>
-  publicKeys.map(encodeAddress);
 
 class App extends React.PureComponent<Props, State> {
   state: State;
