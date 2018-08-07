@@ -88,14 +88,12 @@ class Account extends React.PureComponent<Props, State> {
             </RxNonce>
             <RxBalance
               className='validator--Account-balance'
-              label={t('account.balance', {
+              label={t('', {
                 defaultValue: 'balance '
               })}
               params={address}
             />
           </div>
-
-
       </div>
     );
   }
