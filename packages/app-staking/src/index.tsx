@@ -46,6 +46,12 @@ class App extends React.PureComponent<Props, State> {
     };
   }
 
+  // componentDidMount() {
+  //   const { className, intentions = [], style, t, validators = [] } = this.props;
+
+  //   getInfos(intentions)
+  // }
+
   render () {
     const { className, intentions = [], style, t, validators = [] } = this.props;
     const { action } = this.state;

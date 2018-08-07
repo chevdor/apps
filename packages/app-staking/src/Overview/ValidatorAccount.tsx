@@ -41,12 +41,12 @@ class Validator extends React.PureComponent<Props> {
 
     return (
       <div className='validator--Account-details'>
-        <div>
-          <IdentityIcon
+
+          {/*<IdentityIcon
             className='validator--Account-icon'
             size={32}
             value={address}
-          />
+          />*/}
           <div className='validator--Account-info'>
             <div className='validator--Account-name'>{name}</div>
             <div className={classes('validator--Account-address', isMine ? 'isMine' : '')} >{address}</div>
