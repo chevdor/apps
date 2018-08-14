@@ -13,6 +13,7 @@ import { QueueConsumer } from '@polkadot/ui-signer/Context';
 import translate from '../translate';
 import AddressValidator from '@polkadot/ui-app/Address/AddressValidator'
 import AddressIntention from '@polkadot/ui-app/Address/AddressIntention'
+import { LineChart, Line } from 'recharts'
 
 type Props = I18nProps & {
   current: Array<string>
@@ -20,7 +21,19 @@ type Props = I18nProps & {
 };
 
 class currentList extends React.PureComponent<Props> {
-  render () {
+  getData () {
+      return [
+        {name: '#12', balance: 4000*Math.random(), nominated: 2400},
+        {name: '#13', balance: 4000*Math.random(), nominated: 2405},
+        {name: '#14', balance: 4000*Math.random(), nominated: 2453},
+        {name: '#15', balance: 4000*Math.random(), nominated: 3000},
+        {name: '#16', balance: 4000*Math.random(), nominated: 2879},
+        {name: '#17', balance: 4000*Math.random(), nominated: 3200},
+        {name: '#18', balance: 4000*Math.random(), nominated: 4300},
+      ];
+    }
+
+    render () {
     const { className, style, current, next } = this.props;
 
     return (
@@ -34,16 +47,21 @@ class currentList extends React.PureComponent<Props> {
                 <h4>Current: {current.length}</h4>
                 {current.map((account) => {
                   return (
-                    <div key={account}>
-                        <AddressValidator
-                          className={classes('row', className)}
-                          name={name || 'validator'} // TODO: check in our list of address is we named it
-                          value={account}
-                          withBalance={true}
-                          withNonce={false}
-                          identIconSize={48}
-                          isShort={true}
-                        />
+                    <div>
+                      <div key={account} className='row'>
+                          <AddressValidator
+                            className={classes(className)}
+                            name={name || 'validator'} // TODO: check in our list of address is we named it
+                            value={account}
+                            withBalance={true}
+                            withNonce={false}
+                            identIconSize={48}
+                            isShort={true}
+                          />
+                          <LineChart width={200} height={100} data={this.getData()}>
+                            <Line type="monotone" dataKey="balance" stroke="#8884d8" />
+                          </LineChart>
+                      </div>
                     </div>
                   );
                 })}
